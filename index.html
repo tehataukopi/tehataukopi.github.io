@@ -52,7 +52,7 @@
             </div>
 
             <nav id="menu">
-                <a href="#podcast-list">Tracks</a>
+                <a href="/blog">Blog</a>
                 <a id="show-modal" @click="showModal=true">Halo!</a>
                 <!-- use the modal component, pass in the prop -->
                 <modal v-if="showModal" @close="showModal=false">
@@ -68,6 +68,8 @@
 
             <div id="notes">
                 <p class="is-paragraph"> {{current_podcast.desc }} </p>
+                <br>
+                <a href="/blog/{{ current_podcast.blog_url }}" target="_blank" style="text-decoration:underline;">Baca Catatan</a>
             </div>
         </section>
 
@@ -88,6 +90,7 @@
                 <a href="https://instagram.com/tehataukopi">Instagram</a> /
                 <a href="https://twitter.com/tehataukopi">Twitter</a>
             </p>
+            <br>
             <div id="disqus_thread"></div>
         </footer>
 
