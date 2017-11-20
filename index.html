@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Podcast Teh Atau Kopi</title>
+    <meta name="description" content="podcast indonesia">
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Podcast Teh Atau Kopi"/>
+    <meta name="twitter:description" content="podcast indonesia"/>
+    <meta name="twitter:site" content="@tehataukopi" />
+    <meta name="twitter:creator" content="@tehataukopi" />
+    <meta name="twitter:image:src" content="/assets/images/logo.png"/>
+    <meta property="og:title" content="Podcast Teh Atau Kopi"/>
+    <meta property="og:description" content="podcast indonesia"/>
+    <meta property="og:image" content="/assets/images/logo.png"/>
+
+    <link rel="stylesheet" href="assets/css/master.css">
+</head>
+<body>
+
+    <div id="app">
+        <header>
+            <div class="brand">
+                <img src="assets/images/logo.png" alt="logo tehataukopi" width="150">
+                <div class="headline">
+                    <h1>Teh Atau Kopi ☕</h1>
+                    <h2>Random podcast tentang hidup</h2>
+                </div>
+            </div>
+
+            <nav id="menu">
+                <a href="#podcast-list">Tracks</a>
+                <a id="show-modal" @click="showModal=true">Halo!</a>
+                <!-- use the modal component, pass in the prop -->
+                <modal v-if="showModal" @close="showModal=false">
+            </nav>
+        </header>
+
+        <div class="loader" v-if="loading">Loading...</div>
+
+        <section id="playing" v-if="!loading">
+            <h3 class="is-headline"> {{current_podcast.title }} </h3>
+            <iframe id="player" width="100%" height="166" scrolling="no" frameborder="no"
+                    v-bind:src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+ current_podcast.soundcloud_id + '&amp;color=%23ff5500&amp;auto_play=' + autoplay_status + '&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true'"></iframe>
+
+            <div id="notes">
+                <p class="is-paragraph"> {{current_podcast.desc }} </p>
+            </div>
+        </section>
+
+        <section id="podcast-list" v-if="!loading">
+            <h3 class="is-headline">Tracks</h3>
+             <article class="collections" v-for="(podcast, index) in podcasts" @click="playPodcast(index)"  v-bind:class="{ active: activeItemId === index }">
+                <p class='is-title'> {{ podcast.title }} </p>
+                <p class='is-desc'> {{ podcast.desc.substring(0, 120) + "..." }} </p>
+             </article>
+        </section>
+
+        <br>
+        Disqus / ShareThis / Social Medias
+
+        <!-- template for the modal component -->
+        <script type="text/x-template" id="modal-template">
+          <transition name="modal">
+            <div class="modal-mask">
+              <div class="modal-wrapper">
+                <div class="modal-container">
+
+                  <div class="modal-header">
+                    <slot name="header">
+                      <h3>Salam Kenal!</h3>
+                    </slot>
+                  </div>
+
+                  <div class="modal-body">
+                    <slot name="body">
+                      <p> Selamat datang di Teh/Kopi, kenalin saya <a href="https://hilmanrdn.id" target="_blank">🎙 Hilmanrdn</a>  , founder sekolahkoding.com</p>
+                      <br>
+                      <p>
+                          Setelah membuat podcast di sekolahkoding, saya sadar, membahas hal-hal yang tidak diajarkan di sekolahkoding perlu diperluas,
+                          bukan cuma untuk programmer.</p>
+                      <br>
+                      <p> Karena itu lahirlah teh/kopi! Silahkan dishare ke temannya kalau ini bermanfaat</p>
+                    </slot>
+                    <br>
+                    <button class="modal-default-button" @click="$emit('close')">
+                      Okay!
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </script>
+        <!-- end modal -->
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
