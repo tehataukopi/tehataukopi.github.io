@@ -37,7 +37,6 @@
     </script>
 
     <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5a1243fbd6db8b001271ccd4&product=unknown' async='async'></script>
-
 </head>
 <body>
 
@@ -69,27 +68,27 @@
             <div id="notes">
                 <p class="is-paragraph"> {{current_podcast.desc }} </p>
                 <br>
-                <a v-bind:href="'/blog/'+ current_podcast.blog_url " target="_blank" style="text-decoration:underline;">Baca Catatan</a>
+                <a v-bind:href="'/blog/'+ current_podcast.blog_url " target="_blank" style="display:block;text-decoration:underline;text-align:center;">Baca Catatan</a>
             </div>
         </section>
 
         <section id="podcast-list" v-if="!loading">
-            <h3 class="is-headline">Tracks</h3>
+            <h3 class="is-headline">Daftar Episode</h3>
              <article class="collections" v-for="(podcast, index) in podcasts" @click="playPodcast(index)"  v-bind:class="{ active: activeItemId === index }">
                 <p class='is-title'> {{ podcast.title }} </p>
                 <p class='is-desc'> {{ podcast.desc.substring(0, 120) + "..." }} </p>
              </article>
+            <br>
+             <p style="text-align:center">
+                 Follow
+                 <a href="https://facebook.com/tehataukopi">Facebook</a> /
+                 <a href="https://instagram.com/tehataukopi">Instagram</a> /
+                 <a href="https://twitter.com/tehataukopi">Twitter</a>
+             </p>
         </section>
 
         <footer>
             <div class="sharethis-inline-share-buttons"></div>
-            <br>
-            <p>
-                Follow
-                <a href="https://facebook.com/tehataukopi">Facebook</a> /
-                <a href="https://instagram.com/tehataukopi">Instagram</a> /
-                <a href="https://twitter.com/tehataukopi">Twitter</a>
-            </p>
             <br>
             <div id="disqus_thread"></div>
         </footer>
