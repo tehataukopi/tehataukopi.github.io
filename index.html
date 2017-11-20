@@ -69,7 +69,7 @@
             <div id="notes">
                 <p class="is-paragraph"> {{current_podcast.desc }} </p>
                 <br>
-                <a href="/blog/{{ current_podcast.blog_url }}" target="_blank" style="text-decoration:underline;">Baca Catatan</a>
+                <a v-bind:href="'/blog/'+ current_podcast.blog_url " target="_blank" style="text-decoration:underline;">Baca Catatan</a>
             </div>
         </section>
 
