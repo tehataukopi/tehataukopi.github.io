@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico">
     <title>Podcast Teh Atau Kopi</title>
-    <meta name="description" content="podcast indonesia">
+    <meta name="description" content="random podcast indonesia, tentang hidup!">
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Podcast Teh Atau Kopi"/>
-    <meta name="twitter:description" content="podcast indonesia"/>
+    <meta name="twitter:description" content="random podcast indonesia, tentang hidup!"/>
     <meta name="twitter:site" content="@tehataukopi" />
     <meta name="twitter:creator" content="@tehataukopi" />
     <meta name="twitter:image:src" content="/assets/images/logo.png"/>
     <meta property="og:title" content="Podcast Teh Atau Kopi"/>
-    <meta property="og:description" content="podcast indonesia"/>
+    <meta property="og:description" content="random podcast indonesia, tentang hidup!"/>
     <meta property="og:image" content="/assets/images/logo.png"/>
 
     <link rel="stylesheet" href="assets/css/master.css">
@@ -63,12 +63,12 @@
         <section id="playing" v-if="!loading">
             <h3 class="is-headline"> {{current_podcast.title }} </h3>
             <iframe id="player" width="100%" height="166" scrolling="no" frameborder="no"
-                    v-bind:src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+ current_podcast.soundcloud_id + '&amp;color=%23ff5500&amp;auto_play=' + autoplay_status + '&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true'"></iframe>
+                    v-bind:src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+ current_podcast.soundcloud_id + '&amp;color=%23EE4949&amp;auto_play=' + autoplay_status + '&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true'"></iframe>
 
             <div id="notes">
                 <p class="is-paragraph"> {{current_podcast.desc }} </p>
                 <br>
-                <a v-bind:href="'/blog/'+ current_podcast.blog_url " target="_blank" style="display:block;text-decoration:underline;text-align:center;">Baca Catatan</a>
+                <a v-bind:href="'/blog/'+ current_podcast.blog_url + '/' " target="_blank" style="display:block;text-decoration:underline;text-align:center;">Lebih suka baca tulisan?</a>
             </div>
         </section>
 
