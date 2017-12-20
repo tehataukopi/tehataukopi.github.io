@@ -41,6 +41,7 @@
 <body>
 
     <div id="app">
+
         <header>
             <div class="brand">
                 <img src="assets/images/logo.png" alt="logo tehataukopi" width="150">
@@ -58,17 +59,27 @@
             </nav>
         </header>
 
+         <div id="socmed">
+             <a href="https://facebook.com/tehataukopi"><img src="assets/images/fb.png"></a>
+             <a href="https://instagram.com/tehataukopi"><img src="assets/images/ig.png"></a>
+             <a href="https://www.youtube.com/channel/UCWu9Ns4qVcyHNd4vZcMCwPg"><img src="assets/images/utube.png"></a>
+             <a href="https://twitter.com/tehataukopi"><img src="assets/images/tw.png"></a>
+             <!-- social media icons by https://www.axialis.com/ -->
+         </div>
+
         <div class="loader" v-if="loading">Loading...</div>
 
         <section id="playing" v-if="!loading">
-            <h3 class="is-headline"> {{current_podcast.title }} </h3>
-            <iframe id="player" width="100%" height="166" scrolling="no" frameborder="no"
-                    v-bind:src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+ current_podcast.soundcloud_id + '&amp;color=%23EE4949&amp;auto_play=' + autoplay_status + '&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true'"></iframe>
+            <h3 id="box-title"> {{current_podcast.title }} </h3>
+            <div id="box-player">
+                <iframe id="player" width="100%" height="166" scrolling="no" frameborder="no"
+                        v-bind:src="'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'+ current_podcast.soundcloud_id + '&amp;color=%23EE4949&amp;auto_play=' + autoplay_status + '&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true'"></iframe>
 
-            <div id="notes">
-                <p class="is-paragraph"> {{current_podcast.desc }} </p>
-                <br>
-                <a v-bind:href="'/blog/'+ current_podcast.blog_url + '/' " target="_blank" style="display:block;text-decoration:underline;text-align:center;">Lebih suka baca tulisan?</a>
+                <div id="notes">
+                    <p class="is-paragraph"> {{current_podcast.desc }} </p>
+                    <br>
+                    <a v-bind:href="'/blog/'+ current_podcast.blog_url + '/' " target="_blank" style="display:block;text-decoration:underline;text-align:center;">Lebih suka baca tulisan?</a>
+                </div>
             </div>
         </section>
 
@@ -78,13 +89,6 @@
                 <p class='is-title'> {{ podcast.title }} </p>
                 <p class='is-desc'> {{ podcast.desc.substring(0, 120) + "..." }} </p>
              </article>
-            <br>
-             <p style="text-align:center">
-                 <a href="https://facebook.com/tehataukopi">Facebook</a> /
-                 <a href="https://instagram.com/tehataukopi">Instagram</a> /
-                 <a href="https://twitter.com/tehataukopi">Twitter</a> /
-                 <a href="https://www.youtube.com/channel/UCWu9Ns4qVcyHNd4vZcMCwPg">Youtube</a>
-             </p>
         </section>
 
         <footer>
@@ -122,7 +126,7 @@
                       <p> Selamat datang di Teh/Kopi, kenalin saya <a href="https://hilmanrdn.id" target="_blank">🎙 Hilmanrdn</a>  , founder sekolahkoding.com</p>
                       <br>
                       <p>
-                          Disini saya akan sharing buat yang ngga puas cuman belajar di sekolah, ngga suka nerima default, ngga suka dengan sistem pendidikan sekarang, ngga suka jadi rata-rata, ngga suka jadi mahasiswa/karyawan/pengusaha biasa</p>
+                          Disini saya sharing buat yang ngga puas cuman belajar di sekolah, ngga suka nerima default, ngga suka dengan sistem pendidikan sekarang, ngga suka jadi rata-rata, ngga suka jadi mahasiswa/karyawan/pengusaha biasa</p>
                       <br>
                       <p>  Silahkan dishare ke temannya kalau ini bermanfaat</p>
                     </slot>
